@@ -1,0 +1,109 @@
+# algo
+algo.maxwell_solver = Yee
+algo.particle_shape = 3
+
+# amr
+amr.blocking_factor = 32
+amr.max_grid_size = 64
+amr.max_level = 0
+amr.n_cell = 32 32 256
+
+# beam
+beam.charge = -q_e
+beam.initialize_self_fields = 0
+beam.injection_style = gaussian_beam
+beam.mass = m_e
+beam.momentum_distribution_type = gaussian
+beam.npart = 100
+beam.q_tot = -1e-12
+beam.ux_m = 0.0
+beam.ux_th = 2.0
+beam.uy_m = 0.0
+beam.uy_th = 2.0
+beam.uz_m = 500.0
+beam.uz_th = 50.0
+beam.x_m = 0.0
+beam.x_rms = 5e-07
+beam.y_m = 0.0
+beam.y_rms = 5e-07
+beam.z_m = -2.8e-05
+beam.z_rms = 5e-07
+
+# boundary
+boundary.field_hi = periodic periodic pec
+boundary.field_lo = periodic periodic pec
+boundary.particle_hi = periodic periodic absorbing
+boundary.particle_lo = periodic periodic absorbing
+
+# diag1
+diag1.diag_type = Full
+diag1.fields_to_plot = Bx By Bz Ex Ey Ez jx jy jz rho
+diag1.file_prefix = ./Python_LaserAcceleration_plt
+diag1.format = plotfile
+diag1.intervals = 1
+diag1.species = electrons beam
+diag1.write_species = 1
+
+# diagnostics
+diagnostics.diags_names = diag1
+
+# electrons
+electrons.addIntegerAttributes = regionofinterest
+electrons.addRealAttributes = initialenergy
+electrons.attribute.initialenergy(x,y,z,ux,uy,uz,t) = ux*ux + uy*uy + uz*uz
+electrons.attribute.regionofinterest(x,y,z,ux,uy,uz,t) = (z>12.0e-6) * (z<13.0e-6)
+electrons.charge = -q_e
+electrons.density = 2e+23
+electrons.do_continuous_injection = 1
+electrons.initialize_self_fields = 0
+electrons.injection_style = nuniformpercell
+electrons.mass = m_e
+electrons.momentum_distribution_type = constant
+electrons.num_particles_per_cell_each_dim = 1 1 1
+electrons.profile = constant
+electrons.ux = 0.0
+electrons.uy = 0.0
+electrons.uz = 0.0
+electrons.xmax = 2e-05
+electrons.xmin = -2e-05
+electrons.ymax = 2e-05
+electrons.ymin = -2e-05
+electrons.zmin = 0
+
+# geometry
+geometry.dims = 3
+geometry.prob_hi = 3e-05 3e-05 1.2e-05
+geometry.prob_lo = -3e-05 -3e-05 -5.6e-05
+
+# laser1
+laser1.direction = 0 0 1
+laser1.do_continuous_injection = 0
+laser1.e_max = 16000000000000.0
+laser1.polarization = 0 1 0
+laser1.position = 0.0 0.0 9e-06
+laser1.profile = Gaussian
+laser1.profile_duration = 1.5e-14
+laser1.profile_focal_distance = 0.0001
+laser1.profile_t_peak = 3e-14
+laser1.profile_waist = 5e-06
+laser1.wavelength = 8e-07
+
+# lasers
+lasers.names = laser1
+
+# max_step
+max_step = 150
+
+# particles
+particles.species_names = electrons beam
+
+# warpx
+warpx.cfl = 1.0
+warpx.do_dive_cleaning = 0
+warpx.do_dynamic_scheduling = 0
+warpx.do_moving_window = 1
+warpx.moving_window_dir = z
+warpx.moving_window_v = 1.0
+warpx.serialize_initial_conditions = 1
+warpx.use_filter = 1
+warpx.verbose = 1

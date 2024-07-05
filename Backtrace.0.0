@@ -1,0 +1,144 @@
+Host Name: login36
+=== If no file names and line numbers are shown below, one can run
+            addr2line -Cpfie my_exefile my_line_address
+    to convert `my_line_address` (e.g., 0x4a6b) into file name and line number.
+    Or one can use amrex/Tools/Backtrace/parse_bt.py.
+
+=== Please note that the line number reported by addr2line may not be accurate.
+    One can use
+            readelf -wl my_exefile | grep my_line_address'
+    to find out the offset for that line.
+
+ 0: /global/homes/g/ginella/.conda/envs/warpx/lib/python3.12/site-packages/amrex/space3d/../../../../libamrex_3d.so(_ZN5amrex11BLBackTrace20print_backtrace_infoEP8_IO_FILE+0x42) [0x7fb6bc726382]
+    ?? ??:0
+
+ 1: /global/homes/g/ginella/.conda/envs/warpx/lib/python3.12/site-packages/amrex/space3d/../../../../libamrex_3d.so(_ZN5amrex11BLBackTrace7handlerEi+0x400) [0x7fb6bc728d20]
+    ?? ??:0
+
+ 2: /global/homes/g/ginella/.conda/envs/warpx/lib/python3.12/site-packages/amrex/space3d/../../../../libamrex_3d.so(_ZN5amrex10Error_hostEPKcS1_+0xc5) [0x7fb6bc6ab3c5]
+    ?? ??:0
+
+ 3: /global/homes/g/ginella/.conda/envs/warpx/lib/python3.12/site-packages/amrex/space3d/../../../../libamrex_3d.so(_ZN5amrex9ParmParse10InitializeEiPPcPKc+0x214) [0x7fb6bc6d6d04]
+    ?? ??:0
+
+ 4: /global/homes/g/ginella/.conda/envs/warpx/lib/python3.12/site-packages/amrex/space3d/../../../../libamrex_3d.so(_ZN5amrex10InitializeERiRPPcbiRKSt8functionIFvvEERSoS9_PFvPKcE+0x5ae) [0x7fb6bc6abc6e]
+    ?? ??:0
+
+ 5: /global/homes/g/ginella/.conda/envs/warpx/lib/python3.12/site-packages/pywarpx/warpx_pybind_3d.cpython-312-x86_64-linux-gnu.so(_ZN5warpx14initialization10amrex_initERiRPPcb+0x6e) [0x7fb6bbf96cce]
+    ?? ??:0
+
+ 6: /global/homes/g/ginella/.conda/envs/warpx/lib/python3.12/site-packages/pywarpx/warpx_pybind_3d.cpython-312-x86_64-linux-gnu.so(+0xadba5) [0x7fb6bbe4dba5]
+    ?? ??:0
+
+ 7: /global/homes/g/ginella/.conda/envs/warpx/lib/python3.12/site-packages/pywarpx/warpx_pybind_3d.cpython-312-x86_64-linux-gnu.so(+0x9f23a) [0x7fb6bbe3f23a]
+    ?? ??:0
+
+ 8: python(+0x22d111) [0x560192710111]
+    cfunction_call
+/usr/local/src/conda/python-3.12.4/Include/internal/pycore_pyerrors.h:23:15
+
+ 9: python(_PyObject_MakeTpCall+0x2eb) [0x5601926efd8b]
+    _PyObject_MakeTpCall
+/usr/local/src/conda/python-3.12.4/Include/internal/pycore_ceval.h:144:34
+
+10: python(+0x113f20) [0x5601925f6f20]
+    _PyEval_EvalFrameDefault
+Python/bytecodes.c:2718:16
+
+11: python(PyEval_EvalCode+0xae) [0x5601927aa6fe]
+    PyEval_EvalCode
+/usr/local/src/conda/python-3.12.4/Include/object.h:242:12
+
+12: python(+0x2e29cd) [0x5601927c59cd]
+    builtin_exec
+/usr/local/src/conda/python-3.12.4/Python/bltinmodule.c:1096
+
+13: python(+0x1157df) [0x5601925f87df]
+    _PyEval_EvalFrameDefault
+Python/bytecodes.c:2984:31
+
+14: python(+0x2dde72) [0x5601927c0e72]
+    gen_send_ex2
+/usr/local/src/conda/python-3.12.4/Objects/genobject.c:238:8
+
+15: python(+0x332477) [0x560192815477]
+    gen_send_ex
+/usr/local/src/conda/python-3.12.4/Objects/genobject.c:274
+
+16: python(+0x11618e) [0x5601925f918e]
+
+17: python(+0x25a6dc) [0x56019273d6dc]
+
+18: python(+0x25a25d) [0x56019273d25d]
+    method_vectorcall
+/usr/local/src/conda/python-3.12.4/Objects/classobject.c:63:20
+
+19: python(_PyObject_Call+0x123) [0x560192720b53]
+
+20: python(+0x114c54) [0x5601925f7c54]
+
+21: python(+0x2dde72) [0x5601927c0e72]
+
+22: /global/homes/g/ginella/.conda/envs/warpx/lib/python3.12/lib-dynload/_asyncio.cpython-312-x86_64-linux-gnu.so(+0x81e6) [0x7fb6f4b731e6]
+    task_step_impl
+/usr/local/src/conda/python-3.12.4/Modules/_asynciomodule.c:2840:22
+
+23: /global/homes/g/ginella/.conda/envs/warpx/lib/python3.12/lib-dynload/_asyncio.cpython-312-x86_64-linux-gnu.so(+0x899a) [0x7fb6f4b7399a]
+    task_step
+/usr/local/src/conda/python-3.12.4/Modules/_asynciomodule.c:3141:11
+
+24: python(+0x22bbba) [0x56019270ebba]
+
+25: python(+0x35d0fc) [0x5601928400fc]
+
+26: python(+0x1cab2c) [0x5601926adb2c]
+
+27: python(+0x221f16) [0x560192704f16]
+    cfunction_vectorcall_FASTCALL_KEYWORDS
+/usr/local/src/conda/python-3.12.4/Objects/methodobject.c:438:24
+
+28: python(+0x114c54) [0x5601925f7c54]
+    _PyEval_EvalFrameDefault.cold
+/usr/local/src/conda/python-3.12.4/Objects/call.c:387:12
+
+29: python(PyEval_EvalCode+0xae) [0x5601927aa6fe]
+    PyEval_EvalCode
+/usr/local/src/conda/python-3.12.4/Include/object.h:242:12
+
+30: python(+0x2e29cd) [0x5601927c59cd]
+    builtin_exec
+/usr/local/src/conda/python-3.12.4/Python/bltinmodule.c:1096
+
+31: python(+0x221f16) [0x560192704f16]
+    cfunction_vectorcall_FASTCALL_KEYWORDS
+/usr/local/src/conda/python-3.12.4/Objects/methodobject.c:438:24
+
+32: python(PyObject_Vectorcall+0x4f) [0x560192704c9f]
+    PyObject_Vectorcall
+/usr/local/src/conda/python-3.12.4/Objects/call.c:28:8
+
+33: python(+0x113f20) [0x5601925f6f20]
+    _PyEval_EvalFrameDefault
+Python/bytecodes.c:2718:16
+
+34: python(+0x2f7e98) [0x5601927dae98]
+    pymain_run_module
+/usr/local/src/conda/python-3.12.4/Modules/main.c:300
+
+35: python(Py_RunMain+0x3c5) [0x5601927da2b5]
+    Py_RunMain
+/usr/local/src/conda/python-3.12.4/Modules/main.c:623
+
+36: python(Py_BytesMain+0x37) [0x560192792fa7]
+    Py_BytesMain
+/usr/local/src/conda/python-3.12.4/Modules/main.c:764:1
+
+37: /lib64/libc.so.6(__libc_start_main+0xef) [0x7fb6f5ff124d]
+
+38: python(+0x2afe21) [0x560192792e21]
+    _start
+/usr/local/src/conda/python-3.12.4/Parser/parser.c:41564:25
+
+
+===== TinyProfilers ======
+
