@@ -1,6 +1,6 @@
 # HOW TO SETUP WARPX JUPYTER DEV ENVIRONMENT
 
-##WARPx
+##WARPX
 All physics simulation code is pulled from the [WarpX](https://github.com/ECP-WarpX/WarpX) repository.
 
 
