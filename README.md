@@ -11,7 +11,6 @@ Follow the conda installation instructions from [this link](https://warpx.readth
 
 Go to the Python subdirectory and run 
 
-```python
-def greet():
-    print("Hello, world!")
+```
+python setup.py install
 ```
