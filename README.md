@@ -9,7 +9,8 @@ Follow the conda installation instructions from [this link](https://warpx.readth
 
 
 ## PYTHON WARPX INSTALLATION
-Go to the Python subdirectory and run 
+This avoids the compilation of the C++ and is recommended when only using the Python input files as preprocessors. This installation depend on numpy, periodictable, and picmistandard.
+Go to the Python subdirectory and run
 
 ```
 python setup.py install
