@@ -5,10 +5,10 @@ All physics simulation code is pulled from the [WarpX](https://github.com/ECP-Wa
 
 
 ## CONDA
-Follow the conda installation instructions from [this link.](https://warpx.readthedocs.io/en/latest/install/dependencies.html#conda-linux-macos-windows)
+Follow the conda installation instructions from [this link.](https://warpx.readthedocs.io/en/latest/install/dependencies.html#conda-linux-macos-windows). This will allow you to create and activate a WarpX conda environment.
+
 
 ## PYTHON WARPX INSTALLATION
-
 Go to the Python subdirectory and run 
 
 ```
