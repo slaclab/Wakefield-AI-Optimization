@@ -9,9 +9,9 @@ Before setting up the development environment, create a jupyter account and [con
 ## WARPX INSTALLATION
 First, clone the WarpX repository - 
 
-'''
+```
 git clone git@github.com:ECP-WarpX/WarpX.git
-'''
+```
 
 OR
 
