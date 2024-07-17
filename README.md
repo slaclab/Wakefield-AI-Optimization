@@ -1,11 +1,11 @@
-# HOW TO SETUP WARPX JUPYTER DEV ENVIRONMENT FOR RUNNING THE CODE IN THIS REPOSITORY
+# HOW TO SETUP WARPX JUPYTER DEV ENVIRONMENT
 
 ## WARPX
 All physics simulation code is pulled from the [WarpX](https://github.com/ECP-WarpX/WarpX) repository.
----
+
 ## JUPYTER ACCOUNT + SSH SETUP
 Before setting up the development environment, create a jupyter account and [connect](https://docs.nersc.gov/connect/) to perlmutter via nersc.
----
+
 ## WARPX INSTALLATION
 ### First, clone the WarpX repository - 
 
