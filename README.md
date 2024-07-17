@@ -23,9 +23,13 @@ git clone https://github.com/ECP-WarpX/WarpX.git
 
 ```
 cmake .
+```
 
+```
 cmake -S . -B build
+```
 
+```
 cmake --build build -j 4
 ```
 
@@ -33,7 +37,9 @@ cmake --build build -j 4
 
 ```
 module load python/3.9
+```
 
+```
 python3 -m pip wheel -v .
 ```
 
@@ -41,11 +47,11 @@ python3 -m pip wheel -v .
 
 ```
 export PYTHONUSERBASE=/YOUR_PATH/WarpXPython
-
-python setup.py install --user
 ```
 
-
+```
+python setup.py install --user
+```
 
 ## CONDA ENVIRONMENT SETUP
 ### Load python version 3.9 as a module -
@@ -70,18 +76,31 @@ conda activate warpx
 
 ```
 conda config --set solver libmamba
+```
 
+```
 mamba install --yes -c conda-forge python ipykernel ipympl matplotlib numpy pandas yt openpmd-viewer openpmd-api h5py fast-histogram dask dask-jobqueue pyarrow
+```
 
+```
 python -m ipykernel install --user --name warpx --display-name warpx
+```
 
+```
 echo -e '#!/bin/bash\nmodule load python\nsource activate warpx\nexec "$@"' > $HOME/.local/share/jupyter/kernels/warpx/kernel-helper.sh
+```
 
+```
 chmod a+rx $HOME/.local/share/jupyter/kernels/warpx/kernel-helper.sh
+```
 
+```
 KERNEL_STR=$(jq '.argv |= ["{resource_dir}/kernel-helper.sh"] + .' $HOME/.local/share/jupyter/kernels/warpx/kernel.json | jq '.argv[1] = "python"')
+```
 
+```
 echo ${KERNEL_STR} | jq > $HOME/.local/share/jupyter/kernels/warpx/kernel.json
+```
 
 conda install --channel conda-forge yt
 
