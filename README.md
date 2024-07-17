@@ -102,7 +102,10 @@ KERNEL_STR=$(jq '.argv |= ["{resource_dir}/kernel-helper.sh"] + .' $HOME/.local/
 echo ${KERNEL_STR} | jq > $HOME/.local/share/jupyter/kernels/warpx/kernel.json
 ```
 
+```
 conda install --channel conda-forge yt
+```
 
+```
 conda update -y -n base conda
 ```
