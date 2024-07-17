@@ -3,25 +3,77 @@
 ## WARPX
 All physics simulation code is pulled from the [WarpX](https://github.com/ECP-WarpX/WarpX) repository.
 
+## JUPYTER ACCOUNT + SSH SETUP
+Before setting up the development environment, create a jupyter account and [connect](https://docs.nersc.gov/connect/) to perlmutter via nersc.
 
-## CONDA
-Follow the conda installation instructions from [this link](https://warpx.readthedocs.io/en/latest/install/dependencies.html#conda-linux-macos-windows). This will allow you to create and activate a WarpX conda environment.
+## WARPX INSTALLATION
+First, clone the WarpX repository - 
+'''
+git clone git@github.com:ECP-WarpX/WarpX.git
+'''
 
+OR
 
-## PYTHON WARPX INSTALLATION
-This avoids the compilation of the C++ and is recommended when only using the Python input files as preprocessors. This installation depend on numpy, periodictable, and picmistandard.
-Go to the Python subdirectory and run
+'''
+git clone https://github.com/ECP-WarpX/WarpX.git
+'''
 
-```
-python setup.py install
-```
+Build and compile using cmake -
+'''
+cmake .
 
-This installs the Python scripts as a package (named pywarpx) in your standard Python installation (i.e. in your site-packages directory). If you do not have write permission to the default Python installation (e.g. typical on computer clusters), there are two options. The recommended option is to use a virtual environment, which provides the most flexibility and robustness.
+cmake -S . -B build
 
-Alternatively, add the --user install option to have WarpX installed elsewhere.
+cmake --build build -j 4
+'''
 
-```
+Setup python on perlmutter - 
+'''
+module load python/3.9
+
+python3 -m pip wheel -v .
+'''
+
+To set up as a python module -
+'''
+export PYTHONUSERBASE=/YOUR_PATH/WarpXPython
+
 python setup.py install --user
-```
+'''
 
-With --user, the default location will be in your home directory, ~/.local, or the location defined by the environment variable PYTHONUSERBASE.
+## CONDA ENVIRONMENT SETUP
+Load python version 3.9 as a module -
+'''
+module load python/3.9
+'''
+
+Create a warpx conda environment -
+'''
+conda create -n warpx -c conda-forge warpx
+'''
+
+Activate the environment - 
+'''
+conda activate warpx
+'''
+
+Configure your environment according to WarpX documentation - 
+'''
+conda config --set solver libmamba
+
+mamba install --yes -c conda-forge python ipykernel ipympl matplotlib numpy pandas yt openpmd-viewer openpmd-api h5py fast-histogram dask dask-jobqueue pyarrow
+
+python -m ipykernel install --user --name warpx --display-name warpx
+
+echo -e '#!/bin/bash\nmodule load python\nsource activate warpx\nexec "$@"' > $HOME/.local/share/jupyter/kernels/warpx/kernel-helper.sh
+
+chmod a+rx $HOME/.local/share/jupyter/kernels/warpx/kernel-helper.sh
+
+KERNEL_STR=$(jq '.argv |= ["{resource_dir}/kernel-helper.sh"] + .' $HOME/.local/share/jupyter/kernels/warpx/kernel.json | jq '.argv[1] = "python"')
+
+echo ${KERNEL_STR} | jq > $HOME/.local/share/jupyter/kernels/warpx/kernel.json
+
+conda install --channel conda-forge yt
+
+conda update -y -n base conda
+'''
