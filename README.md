@@ -53,7 +53,16 @@ export PYTHONUSERBASE=/YOUR_PATH/WarpXPython
 python setup.py install --user
 ```
 
-## CONDA ENVIRONMENT SETUP
+## CONDA ENVIRONMENT SETUP 
+
+#########################
+#########################
+
+Start here if you only need python pywarpx on jupyter
+
+#########################
+#########################
+
 ### Load python version 3.9 as a module -
 
 ```
